@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-<uses-permission android:name="android.permission.INTERNET" />
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-<uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
-<uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
-
     <application
         android:label="Pinterest AdKiller"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        android:theme="@style/Theme.PinterestAdKiller">
 
         <meta-data
             android:name="xposedmodule"
             android:value="true" />
         <meta-data
             android:name="xposeddescription"
-            android:value="Removes ads from Pinterest JSON feeds" />
+            android:value="Remove Ads from Pinterest" />
         <meta-data
             android:name="xposedminversion"
-            android:value="93" />
+            android:value="82" />
+        
+        <meta-data
+            android:name="xposedscope"
+            android:resource="@array/xposed_scope" />
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="false">
+        </activity>
 
     </application>
 
