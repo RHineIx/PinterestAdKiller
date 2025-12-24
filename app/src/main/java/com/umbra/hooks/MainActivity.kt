@@ -1,18 +1,22 @@
 package com.umbra.hooks
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
-import android.view.Gravity
-import android.widget.TextView
+import com.umbra.hooks.databinding.ActivityMainBinding
 
 class MainActivity : Activity() {
+    
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        
-        val textView = TextView(this)
-        textView.text = "Umbra Active\n\nSupports:\n- Pinterest\n- CapCut"
-        textView.textSize = 20f
-        textView.gravity = Gravity.CENTER
-        setContentView(textView)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        // Navigate to Gboard Settings
+        binding.cardGboard.setOnClickListener {
+            startActivity(Intent(this, GboardActivity::class.java))
+        }
     }
 }

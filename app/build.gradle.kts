@@ -11,13 +11,13 @@ android {
         applicationId = "com.umbra.hooks"
         minSdk = 26
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "2.0"
     }
 
     buildFeatures {
-        viewBinding = false
-        buildConfig = false
+        viewBinding = true
+        buildConfig = true
     }
 
     compileOptions {
@@ -32,22 +32,36 @@ android {
 
     buildTypes {
         debug {
-            // اجعل هذه false في وضع الـ debug
-            isMinifyEnabled = false 
+            isMinifyEnabled = false
             isShrinkResources = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
         release {
             signingConfig = signingConfigs.getByName("debug")
-            // اتركها true في الـ release
-            isMinifyEnabled = true 
+            isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+        }
+    }
+    
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
 }
 
 dependencies {
     implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+    implementation(libs.androidx.constraintlayout)
+    
+    // Coroutines for UI operations
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+    
+    // DexKit for Gboard hooking
+    implementation("org.luckypray:dexkit:2.0.7")
+
     compileOnly("de.robv.android.xposed:api:82")
 }
