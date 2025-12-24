@@ -16,6 +16,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "PinterestAdKiller"
-
+rootProject.name = "Umbra"
 include(":app")

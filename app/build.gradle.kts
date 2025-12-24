@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.my.pinterestadkiller"
+    namespace = "com.umbra.hooks"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.my.pinterestadkiller"
+        applicationId = "com.umbra.hooks"
         minSdk = 26
         targetSdk = 34
         versionCode = 1
@@ -32,15 +32,15 @@ android {
 
     buildTypes {
         debug {
-            isMinifyEnabled = true
-            isShrinkResources = true
+            // اجعل هذه false في وضع الـ debug
+            isMinifyEnabled = false 
+            isShrinkResources = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
         release {
-
             signingConfig = signingConfigs.getByName("debug")
-            
-            isMinifyEnabled = true
+            // اتركها true في الـ release
+            isMinifyEnabled = true 
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
@@ -48,6 +48,6 @@ android {
 }
 
 dependencies {
-    implementation("androidx.core:core-ktx:1.13.1")
+    implementation(libs.androidx.core.ktx)
     compileOnly("de.robv.android.xposed:api:82")
 }

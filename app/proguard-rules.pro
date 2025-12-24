@@ -1,5 +1,6 @@
--keep class com.my.pinteresthook.MainHook { *; }
--keep class com.my.pinteresthook.AdSanitizer { *; }
+-keep class com.umbra.hooks.MainHook { *; }
+-keep class com.umbra.hooks.apps.** { *; }
+-keep class com.umbra.hooks.utils.** { *; }
 -keep class de.robv.android.xposed.** { *; }
 -renamesourcefileattribute SourceFile
 -keepattributes SourceFile,LineNumberTable
