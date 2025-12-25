@@ -26,6 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
+<<<<<<< HEAD
         android:hint="Default: 10"
         android:layout_marginBottom="24dp"/>
 
@@ -69,3 +70,48 @@
         android:layout_marginTop="16dp"/>
 
 </LinearLayout>
+=======
+        android:hint="Default: 5"
+        android:layout_marginBottom="24dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="History Retention (Days)"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:id="@+id/inputDays"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="Default: 3"
+        android:layout_marginBottom="32dp"/>
+
+    <Button
+        android:id="@+id/btnTestClipboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Test: Copy Items to Clipboard"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Save &amp; Restart Gboard (Root)"
+        android:backgroundTint="@android:color/black"/>
+        
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Note: If Root fails, you will be redirected to App Info to force stop manually."
+        android:gravity="center"
+        android:textSize="12sp"
+        android:textColor="@android:color/holo_red_dark"
+        android:layout_marginTop="16dp"/>
+
+</LinearLayout>
+>>>>>>> branch 'main' of https://github.com/RHineIx/Umbra.git
