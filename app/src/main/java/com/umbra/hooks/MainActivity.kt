@@ -19,8 +19,4 @@ class MainActivity : Activity() {
             startActivity(Intent(this, GboardActivity::class.java))
         }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> branch 'main' of https://github.com/RHineIx/Umbra.git

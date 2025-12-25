@@ -11,7 +11,6 @@
             android:value="true" />
         <meta-data
             android:name="xposeddescription"
-<<<<<<< HEAD
             android:value="Umbra: Pinterest AdBlock &amp; Gboard Enhancer" />
         <meta-data
             android:name="xposedminversion"
@@ -39,32 +38,3 @@
     </application>
 
 </manifest>
-=======
-            android:value="Umbra by @RHineIx" />
-        <meta-data
-            android:name="xposedminversion"
-            android:value="82" />
-        
-        <meta-data
-            android:name="xposedscope"
-            android:resource="@array/xposed_scope" />
-
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:name=".GboardActivity"
-            android:exported="false"
-            android:label="Gboard Settings"
-            android:windowSoftInputMode="adjustResize"/>
-
-    </application>
-
-</manifest>
->>>>>>> branch 'main' of https://github.com/RHineIx/Umbra.git

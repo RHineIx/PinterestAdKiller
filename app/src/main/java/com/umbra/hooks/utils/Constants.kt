@@ -9,12 +9,6 @@ object Constants {
     const val PREF_GBOARD_HISTORY_RETENTION = "gboard_history_retention_days"
     
     // Default Values
-<<<<<<< HEAD
     const val DEFAULT_CLIPBOARD_LIMIT = 10
     const val DEFAULT_RETENTION_DAYS = 3L // 3 Days
 }
-=======
-    const val DEFAULT_CLIPBOARD_LIMIT = 50
-    const val DEFAULT_RETENTION_DAYS = 3L // 3 Days
-}
->>>>>>> branch 'main' of https://github.com/RHineIx/Umbra.git
