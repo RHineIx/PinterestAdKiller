@@ -12,12 +12,10 @@ android {
         minSdk = 26
         targetSdk = 34
         versionCode = 4
-        versionName = "2.2-Fix"
+        versionName = "2.3"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         
-        // إزالة abiFilters للسماح بتضمين كل المعماريات تلقائياً لتجنب الأخطاء
-        // ndk { abiFilters.add("arm64-v8a") } 
     }
 
     buildTypes {
@@ -44,7 +42,6 @@ android {
         dataBinding = true
     }
 
-    // التغيير الجذري: منع ضغط المكتبات لتسهيل التحميل المباشر
     packaging {
         jniLibs {
             useLegacyPackaging = false 
@@ -54,23 +51,12 @@ android {
 }
 
 dependencies {
-    // Force Core-KTX version
-    val coreVersion = "1.13.1"
-    implementation("androidx.core:core-ktx:$coreVersion")
-    
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.11.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("androidx.core:core-ktx:1.13.1")
+    implementation("androidx.appcompat:appcompat:1.7.1")
+    implementation("com.google.android.material:material:1.12.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.2.1")
    
     compileOnly("de.robv.android.xposed:api:82")
 
-    // UPDATE: DexKit 2.0.6 (Latest stable for this usage)
-    implementation("org.luckypray:dexkit:2.0.6")
-}
-
-configurations.all {
-    resolutionStrategy {
-        force("androidx.core:core-ktx:1.13.1")
-        force("androidx.core:core:1.13.1")
-    }
+    implementation("org.luckypray:dexkit:2.0.7")
 }

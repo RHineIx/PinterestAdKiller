@@ -6,3 +6,5 @@
 -keepattributes SourceFile,LineNumberTable
 -repackageclasses ''
 -allowaccessmodification
+-keep class org.luckypray.dexkit.** { *; }
+-dontwarn org.luckypray.dexkit.**
