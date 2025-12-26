@@ -27,16 +27,23 @@ class GboardHook {
         } catch (_: Throwable) {}
     }
 
-    /**
-     * 🔒 القراءة الصحيحة داخل Xposed
-     * - لا reload
-     * - لا makeWorldReadable
-     * - نفس أسلوب GboardHook الأصلي
-     */
     private fun getPrefs(): XSharedPreferences? {
-        val pref = XSharedPreferences("com.umbra.hooks", Constants.PREFS_FILE)
-        return if (pref.file.canRead()) pref else null
+    val pref = XSharedPreferences(
+        "com.umbra.hooks",
+        Constants.PREFS_FILE
+    )
+
+    // 🔑 مهم جداً: القراءة من Device Protected Storage
+    pref.makeWorldReadable()
+    pref.reload()
+
+    return if (pref.file.exists() && pref.file.canRead()) {
+        pref
+    } else {
+        XposedBridge.log("$TAG prefs not readable: ${pref.file.absolutePath}")
+        null
     }
+}
 
     private val clipboardLimit: Int
         get() = getPrefs()

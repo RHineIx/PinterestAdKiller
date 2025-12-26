@@ -21,27 +21,21 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val dpContext = applicationContext.createDeviceProtectedStorageContext()
-        dpContext.moveSharedPreferencesFrom(
-            this,
-            Constants.PREFS_FILE
-        )
-
         setContentView(R.layout.activity_main)
 
         etClipLimit = findViewById(R.id.etClipLimit)
         etRetentionDays = findViewById(R.id.etRetentionDays)
         btnSave = findViewById(R.id.btnSaveGboard)
 
-        loadSettings(dpContext)
+        loadSettings()
 
         btnSave.setOnClickListener {
-            saveSettings(dpContext)
+            saveSettings()
         }
     }
 
-    private fun loadSettings(dpContext: Context) {
-        val prefs = dpContext.getSharedPreferences(
+    private fun loadSettings() {
+        val prefs = getSharedPreferences(
             Constants.PREFS_FILE,
             Context.MODE_WORLD_READABLE
         )
@@ -61,15 +55,19 @@ class MainActivity : AppCompatActivity() {
     }
 
     @SuppressLint("WorldReadableFiles")
-    private fun saveSettings(dpContext: Context) {
+    private fun saveSettings() {
 
-        val limit = etClipLimit.text.toString()
-            .toIntOrNull() ?: Constants.DEFAULT_GBOARD_LIMIT
+        val limit = etClipLimit.text
+            ?.toString()
+            ?.toIntOrNull()
+            ?: Constants.DEFAULT_GBOARD_LIMIT
 
-        val days = etRetentionDays.text.toString()
-            .toIntOrNull() ?: Constants.DEFAULT_GBOARD_RETENTION
+        val days = etRetentionDays.text
+            ?.toString()
+            ?.toIntOrNull()
+            ?: Constants.DEFAULT_GBOARD_RETENTION
 
-        val prefs = dpContext.getSharedPreferences(
+        val prefs = getSharedPreferences(
             Constants.PREFS_FILE,
             Context.MODE_WORLD_READABLE
         )
@@ -95,6 +93,7 @@ class MainActivity : AppCompatActivity() {
                     data = Uri.parse("package:com.google.android.inputmethod.latin")
                 }
             )
-        } catch (_: Throwable) {}
+        } catch (_: Throwable) {
+        }
     }
 }
